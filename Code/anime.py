@@ -9,7 +9,7 @@ class Anime:
 
     async def parse(self, url: str='') -> str:
         session = aiohttp.ClientSession()
-        async with self.session.get(self.url+url, headers=self.user_agent) as response:
+        async with session.get(self.url+url, headers=self.user_agent) as response:
             text = await response.text()
         await session.close()
         return text
